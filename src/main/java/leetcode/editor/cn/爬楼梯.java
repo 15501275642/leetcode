@@ -41,17 +41,33 @@ package leetcode.editor.cn;
  * @author wangyanji
  * @date 2022-07-08 15:55:19
  */
-public class 爬楼梯{
+public class 爬楼梯 {
     public static void main(String[] args) {
         Solution solution = new 爬楼梯().new Solution();
-         
+        System.out.println(solution.climbStairs(3));
+
     }
-//leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
-    public int climbStairs(int n) {
-        return 2;
+
+    //leetcode submit region begin(Prohibit modification and deletion)
+    class Solution {
+        public int climbStairs(int n) {
+            if (n == 0) {
+                return 0;
+            }
+            if (n == 1 || n == 2) {
+                return n;
+            }
+
+            int c1 = 1;
+            int c2 = 2;
+            for (int i = 3; i <= n; i++) {
+                int a = c1 + c2;
+                c1 = c2;
+                c2 = a;
+            }
+            return c2;
+        }
     }
-}
 //leetcode submit region end(Prohibit modification and deletion)
 
 }
