@@ -62,7 +62,7 @@ public class 排序数组 {
             //取数组第一个元素当中间值
             int index = arr[left];
             int i = left;
-            int j = right - 1;
+            int j = right;
             while (i < j) {
                 //从右向左找第一个比index小的数
                 while (arr[j] >= index && i < j) {
