@@ -102,6 +102,7 @@ public class LRU缓存 {
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class LRUCache {
+
     /**
      * 节点
      */
@@ -149,6 +150,7 @@ class LRUCache {
         public Node<K, V> getLastNode() {
             return tail.pre;
         }
+
     }
 
     int cacheSize;
@@ -164,7 +166,9 @@ class LRUCache {
     public int get(int key) {
         if (map.containsKey(key)) {
             Node<Integer, Integer> integerIntegerNode = map.get(key);
+            //删除节点
             doubleLinkedList.removeNode(integerIntegerNode);
+            //添加到头结点
             doubleLinkedList.addHeadNode(integerIntegerNode);
             return integerIntegerNode.value;
         }
@@ -176,17 +180,23 @@ class LRUCache {
             Node<Integer, Integer> integerIntegerNode = map.get(key);
             integerIntegerNode.value = value;
             map.put(key, integerIntegerNode);
+            //删除链表中的节点
             doubleLinkedList.removeNode(integerIntegerNode);
+            //将节点加入到头部
             doubleLinkedList.addHeadNode(integerIntegerNode);
         } else {
+            //判断map是否已经满
             if (cacheSize == map.size()) {
-                //删除尾节点
+                //链表删除尾节点
                 Node<Integer, Integer> lastNode = doubleLinkedList.getLastNode();
                 doubleLinkedList.removeNode(lastNode);
+                //map删除尾节点
                 map.remove(lastNode.key);
             }
+            //添加到map
             Node<Integer, Integer> integerIntegerNode = new Node<>(key, value);
             map.put(key, integerIntegerNode);
+            //添加到头结点
             doubleLinkedList.addHeadNode(integerIntegerNode);
         }
     }
