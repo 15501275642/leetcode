@@ -57,10 +57,14 @@ public class 最大子数组和{
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int maxSubArray(int[] nums) {
-        int pre = 0, max = nums[0];
+        int preMax = 0,
+                //就一个的话没有选
+                max = nums[0];
         for (int a : nums) {
-            pre = Math.max(pre + a, a);
-            max = Math.max(max, pre);
+            //有你更好, 还是我自己更好
+           preMax = Math.max(preMax + a, a);
+           //走过这一路, 一直拿的最好的
+           max = Math.max(preMax , max);
         }
         return max;
     }

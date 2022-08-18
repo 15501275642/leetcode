@@ -61,11 +61,26 @@ package leetcode.editor.cn;
 public class 颠倒字符串中的单词{
     public static void main(String[] args) {
         Solution solution = new 颠倒字符串中的单词().new Solution();
-         
+        String s = " the sky is blue ";
+        System.out.println(solution.reverseWords(s));
+        System.out.println();
     }
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public String reverseWords(String s) {
+        s = ' ' + s;
+        int n = s.length();
+        StringBuilder ans = new StringBuilder();
+        for (int left = n - 1, right = n; left >= 0; left--) {
+            char ch = s.charAt(left);
+            if (ch == ' ') {
+                if (left + 1 < right) {
+                    ans.append(s, left + 1, right).append(' ');
+                }
+                right = left;
+            }
+        }
+        return ans.substring(0, ans.length() - 1);
 
     }
 }
