@@ -32,6 +32,8 @@
 
 package leetcode.editor.cn;
 
+import java.util.Arrays;
+
 /**
  * 排序数组
  *
@@ -42,7 +44,7 @@ public class 排序数组 {
     public static void main(String[] args) {
         Solution solution = new 排序数组().new Solution();
         int[] ints = solution.sortArray(new int[]{6, 5, 8, 7});
-        System.out.println();
+        System.out.println(Arrays.toString(ints));
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)
@@ -54,34 +56,28 @@ public class 排序数组 {
             quickSort(nums, 0, nums.length - 1);
             return nums;
         }
+
         public void quickSort(int[] arr, int left, int right) {
-            //判断左右下标
             if (left > right) {
                 return;
             }
-            //取数组第一个元素当中间值
-            int index = arr[left];
-            int i = left;
-            int j = right;
+            int i = left, j = right;
+            int target = arr[left];
             while (i < j) {
-                //从右向左找第一个比index小的数
-                while (arr[j] >= index && i < j) {
+                while (arr[j] >= target && i < j) {
                     j--;
                 }
-                //从左向右找第一个比index大的数
-                while (arr[i] <= index && i < j) {
+                while (arr[i] <= target && i < j) {
                     i++;
                 }
                 if (i < j) {
                     swap(arr, i, j);
                 }
             }
-            //将第一个位置的index和i做交换
-            swap(arr, left, i);
-            //调用当前index左边的左右边界
+            swap(arr, i, left);
             quickSort(arr, left, i - 1);
-            //调用当前index右边的左右边界
             quickSort(arr, i + 1, right);
+
         }
 
         /**

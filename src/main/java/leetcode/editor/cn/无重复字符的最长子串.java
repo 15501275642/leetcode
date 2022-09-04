@@ -67,6 +67,7 @@ public class 无重复字符的最长子串 {
                 if (s.length() - i <= max) {
                     break;
                 }
+
                 if (i != 0) {
                     set.remove(s.charAt(i - 1));
                 }

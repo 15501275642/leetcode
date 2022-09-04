@@ -39,9 +39,9 @@ package leetcode.editor.cn;
 public class 最长回文子串 {
     public static void main(String[] args) {
         Solution solution = new 最长回文子串().new Solution();
-        String s = "ab";
+        String s = "aba";
         String s1 = solution.longestPalindrome(s);
-        System.out.println();
+        System.out.println(s1);
 
     }
 
@@ -81,8 +81,7 @@ public class 最长回文子串 {
                     //i 到 j 存在回文子串
                     // 判断是否比max大
                     //大 记录起始坐标和长度
-                    if (dep[i][j] &&
-                            j - i + 1 > max) {
+                    if (dep[i][j] && j - i + 1 > max) {
                         begin = i;
                         max = j - i + 1;
                     }
@@ -94,6 +93,40 @@ public class 最长回文子串 {
     }
 //leeshu'xiangmit region end(Prohibit modification and deletion)
 
+    public static String longest(String s) {
+        int len = s.length();
+        if (len < 2) {
+            return s;
+        }
+        //最大长度
+        int maxLength = 1;
+        int begin = 0;
+        boolean[][] dp = new boolean[len][len];
+        char[] chars = s.toCharArray();
+        //单个字符串一定是回文
+        for (int i = 0; i < len; i++) {
+            dp[i][i] = true;
+        }
+        for (int j = 0; j < len; j++) {
+            for (int i = 0; i < j; i++) {
+                if (chars[i] != chars[j]) {
+                    dp[i][j] = false;
+                } else {
+                    if (j - i < 2) {
+                        dp[i][j] = true;
+                    } else {
+                        dp[i][j] = dp[i + 1][j - 1];
+                    }
+                }
+                if (dp[i][j] && j - i + 1 > maxLength) {
+                    maxLength = j - i + 1;
+                    begin = i;
+                }
+            }
+        }
+
+        return s.substring(begin, maxLength + begin);
+    }
 }
 
 

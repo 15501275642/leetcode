@@ -53,6 +53,7 @@ public class 三数之和 {
     public static void main(String[] args) {
         Solution solution = new 三数之和().new Solution();
         int[] nums = {3, 5, 4, 2, 1, 4};
+        System.out.println(Arrays.toString(nums));
         solution.quickSort(nums, 0, nums.length - 1);
         System.out.println();
 
