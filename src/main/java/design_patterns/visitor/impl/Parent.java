@@ -7,17 +7,17 @@ import design_patterns.user.impl.Teacher;
 import design_patterns.visitor.Visitor;
 
 public class Parent implements Visitor {
-    private Logger logger = LoggerFactory.getLogger(Principal.class);
+    private Logger logger = LoggerFactory.getLogger(Parent.class);
 
     @Override
     public void visit(Teacher teacher) {
-        logger.debug("老师信息 姓名：{} 班级：{} 级别：{}",
+        logger.error("老师信息 姓名：{} 班级：{} 级别：{}",
                 teacher.name, teacher.clazz, teacher.identity);
     }
 
     @Override
     public void visit(Student student) {
-        logger.debug("学生信息 姓名：{} 班级：{} 排名：{}",
+        logger.error("学生信息 姓名：{} 班级：{} 排名：{}",
                 student.name, student.clazz, student.ranking());
     }
 }

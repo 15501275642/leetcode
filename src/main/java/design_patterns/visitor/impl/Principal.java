@@ -12,13 +12,13 @@ public class Principal implements Visitor {
 
     @Override
     public void visit(Teacher teacher) {
-        logger.debug("老师信息 姓名：{} 班级：{} 升学率：{}",
+        logger.error("老师信息 姓名：{} 班级：{} 升学率：{}",
                 teacher.name, teacher.clazz, teacher.entranceRatio());
     }
 
     @Override
     public void visit(Student student) {
-        logger.debug("学生信息 姓名：{} 班级：{} 人数：{}",
+        logger.error("学生信息 姓名：{} 班级：{} 人数：{}",
                 student.name, student.clazz);
     }
 }
