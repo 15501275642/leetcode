@@ -43,7 +43,7 @@ public class 三除数{
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public boolean isThree(int n) {
-
+        return true;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
