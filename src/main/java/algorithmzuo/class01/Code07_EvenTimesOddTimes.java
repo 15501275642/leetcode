@@ -8,7 +8,7 @@ package algorithmzuo.class01;
  */
 public class Code07_EvenTimesOddTimes {
     public static void main(String[] args) {
-        int[] arr = {1, 1, 2, 2, 3, 5,5,5};
+        int[] arr = {1, 1, 2, 2, 3, 5, 5, 5};
         //printOddTimesNum1(arr);
         printOddTimesNum2(arr);
 
