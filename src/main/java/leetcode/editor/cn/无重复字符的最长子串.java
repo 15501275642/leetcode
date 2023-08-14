@@ -40,7 +40,9 @@
 
 package leetcode.editor.cn;
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 
 /**
  * 无重复字符的最长子串
@@ -52,13 +54,16 @@ public class 无重复字符的最长子串 {
     public static void main(String[] args) {
         Solution solution = new 无重复字符的最长子串().new Solution();
         String s = "dvdf";
-        int i = solution.lengthOfLongestSubstring(s);
+        int i = solution.lengthOfLongestSubstring2(s);
         System.out.println();
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
-        public int lengthOfLongestSubstring(String s) {
+        /**
+         *
+         */
+        public int lengthOfLongestSubstring1(String s) {
             //最大长度
             int max = 0, p2 = 0;
             HashSet<Character> set = new HashSet<>();
@@ -69,7 +74,8 @@ public class 无重复字符的最长子串 {
                 }
 
                 if (i != 0) {
-                    set.remove(s.charAt(i - 1));
+                    char c = s.charAt(i - 1);
+                    set.remove(c);
                 }
                 //判断不包含
                 while (p2 < s.length() && !set.contains(s.charAt(p2))) {
@@ -83,8 +89,22 @@ public class 无重复字符的最长子串 {
             }
             return max;
         }
+
+
+        public int lengthOfLongestSubstring2(String s) {
+            int n = s.length(), ans = 0;
+            Map<Character, Integer> map = new HashMap<>();
+            for (int end = 0, start = 0; end < n; end++) {
+                char alpha = s.charAt(end);
+                if (map.containsKey(alpha)) {
+                    start = Math.max(map.get(alpha), start);
+                }
+                ans = Math.max(ans, end - start + 1);
+                map.put(s.charAt(end), end + 1);
+            }
+            return ans;
+        }
     }
-//leetcode submit region end(Prohibit modification and deletion)
 
 }
 
