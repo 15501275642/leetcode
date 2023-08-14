@@ -19,6 +19,12 @@ import static java.util.concurrent.TimeUnit.DAYS;
  */
 public class 两个日期的重叠区间 {
     public static void main(String[] args) {
+        boolean a = true;
+        Object b = a;
+        String s = b.toString();
+        System.out.println(s);
+
+
         LocalDate i1Start = LocalDate.of(2023, 2, 2);
         LocalDate i1End = LocalDate.of(2023, 2, 11);
         LocalDate i2Start = LocalDate.of(2023, 1, 25);
