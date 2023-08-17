@@ -52,6 +52,9 @@ import java.util.Map;
  */
 public class 无重复字符的最长子串 {
     public static void main(String[] args) {
+
+        Map<String, String> map = new HashMap<>(2);
+        boolean empty = map.isEmpty();
         Solution solution = new 无重复字符的最长子串().new Solution();
         String s = "dvdf";
         int i = solution.lengthOfLongestSubstring2(s);
