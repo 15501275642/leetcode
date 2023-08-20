@@ -44,7 +44,7 @@
 //
 // Related Topics 数组 二分查找 👍 2371 👎 0
 
-package leetcode.editor.cn;
+package leetcode.editor.cn.二分查找;
 
 /**
  * 搜索旋转排序数组

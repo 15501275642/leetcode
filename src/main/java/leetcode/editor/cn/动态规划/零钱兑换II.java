@@ -51,7 +51,7 @@
 //
 // Related Topics 数组 动态规划 👍 900 👎 0
 
-package leetcode.editor.cn;
+package leetcode.editor.cn.动态规划;
 
 /**
  * 零钱兑换 II

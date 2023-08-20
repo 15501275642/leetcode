@@ -34,7 +34,7 @@
 //
 // Related Topics 递归 链表 👍 1523 👎 0
 
-package leetcode.editor.cn;
+package leetcode.editor.cn.链表;
 
 /**
  * 两两交换链表中的节点

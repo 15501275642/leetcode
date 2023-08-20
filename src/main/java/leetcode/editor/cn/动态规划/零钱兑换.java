@@ -38,7 +38,7 @@
 //
 // Related Topics 广度优先搜索 数组 动态规划 👍 2080 👎 0
 
-package leetcode.editor.cn;
+package leetcode.editor.cn.动态规划;
 
 import java.util.Arrays;
 

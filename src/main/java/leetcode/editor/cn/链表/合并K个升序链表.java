@@ -45,7 +45,7 @@
 //
 // Related Topics 链表 分治 堆（优先队列） 归并排序 👍 2126 👎 0
 
-package leetcode.editor.cn;
+package leetcode.editor.cn.链表;
 
 /**
  * 合并K个升序链表

@@ -31,7 +31,7 @@
 //
 // Related Topics 树 深度优先搜索 广度优先搜索 二叉树 👍 2062 👎 0
 
-package leetcode.editor.cn;
+package leetcode.editor.cn.二叉树;
 
 /**
  * 对称二叉树

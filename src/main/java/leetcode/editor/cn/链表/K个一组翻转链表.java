@@ -40,7 +40,7 @@
 //
 // Related Topics 递归 链表 👍 1862 👎 0
 
-package leetcode.editor.cn;
+package leetcode.editor.cn.链表;
 
 /**
  * K 个一组翻转链表

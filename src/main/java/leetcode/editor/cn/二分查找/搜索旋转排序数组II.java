@@ -1,4 +1,4 @@
-package leetcode.editor.cn;
+package leetcode.editor.cn.二分查找;
 
 //已知存在一个按非降序排列的整数数组 nums ，数组中的值不必互不相同。 
 //

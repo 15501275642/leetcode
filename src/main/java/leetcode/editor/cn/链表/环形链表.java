@@ -53,7 +53,7 @@
 //
 // Related Topics 哈希表 链表 双指针 👍 1568 👎 0
 
-package leetcode.editor.cn;
+package leetcode.editor.cn.链表;
 
 /**
  * 环形链表

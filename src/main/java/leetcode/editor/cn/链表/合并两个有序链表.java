@@ -35,7 +35,7 @@
 //
 // Related Topics 递归 链表 👍 2616 👎 0
 
-package leetcode.editor.cn;
+package leetcode.editor.cn.链表;
 
 /**
  * 合并两个有序链表

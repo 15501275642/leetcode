@@ -58,11 +58,9 @@
 ////
 //
 
-package leetcode.editor.cn;
+package leetcode.editor.cn.链表;
 
 
-
-import org.junit.platform.commons.util.CollectionUtils;
 
 import java.util.*;
 import java.util.stream.Collectors;

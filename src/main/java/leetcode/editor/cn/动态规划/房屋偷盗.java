@@ -38,7 +38,7 @@
 //
 // Related Topics 数组 动态规划 👍 22 👎 0
 
-package leetcode.editor.cn;
+package leetcode.editor.cn.动态规划;
 
 /**
  * 房屋偷盗

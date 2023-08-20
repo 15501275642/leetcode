@@ -42,9 +42,7 @@
 //
 // Related Topics 树 深度优先搜索 二叉树 👍 2394 👎 0
 
-package leetcode.editor.cn;
-
-import java.util.Objects;
+package leetcode.editor.cn.二叉树;
 
 /**
  * 二叉树的最近公共祖先

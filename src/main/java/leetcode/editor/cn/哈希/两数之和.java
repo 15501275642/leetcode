@@ -43,7 +43,7 @@
 //
 // Related Topics 数组 哈希表 👍 14909 👎 0
 
-package leetcode.editor.cn;
+package leetcode.editor.cn.哈希;
 
 import java.util.HashMap;
 import java.util.Map;

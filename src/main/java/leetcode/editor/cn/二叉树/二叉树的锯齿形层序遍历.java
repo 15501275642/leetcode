@@ -34,7 +34,7 @@
 //
 // Related Topics 树 广度优先搜索 二叉树 👍 680 👎 0
 
-package leetcode.editor.cn;
+package leetcode.editor.cn.二叉树;
 
 import java.util.*;
 
