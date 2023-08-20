@@ -1,15 +1,8 @@
 package demo;
 
-import org.junit.platform.commons.util.CollectionUtils;
-
 import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-
-import static java.util.concurrent.TimeUnit.DAYS;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * @Description TODO
@@ -17,13 +10,22 @@ import static java.util.concurrent.TimeUnit.DAYS;
  * @Date 2023/2/12 10:53
  * @Version 1.0
  */
+
 public class 两个日期的重叠区间 {
     public static void main(String[] args) {
         boolean a = true;
         Object b = a;
         String s = b.toString();
         System.out.println(s);
+        List<Integer> list = new ArrayList<Integer>() {{
+            add(1);
+            add(null);
+            add(1);
+        }};
 
+        List<Integer> collect = list.stream().filter(Objects::nonNull).collect(Collectors.toList());
+
+        System.out.println(list);
 
         LocalDate i1Start = LocalDate.of(2023, 2, 2);
         LocalDate i1End = LocalDate.of(2023, 2, 11);
