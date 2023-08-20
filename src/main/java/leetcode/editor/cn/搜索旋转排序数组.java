@@ -52,17 +52,58 @@ package leetcode.editor.cn;
  * @author wangyanji
  * @date 2022-10-28 09:52:04
  */
-public class 搜索旋转排序数组{
+public class 搜索旋转排序数组 {
     public static void main(String[] args) {
-        Solution solution = new 搜索旋转排序数组().new Solution();
-         
+        //0,1,2,2,4,5,6,7,8,9
+        //8,9,0,1,2,4,5,6,7
+        int[] p = {8, 9, 0, 1, 2, 4, 5, 6, 7};
+
+        Solution solution = new Solution();
+        int search = solution.search(p, 4);
+        System.out.println(search);
+
+        //问题
+        //在数组的任意位置一分为二之后, 一定有一边是有序, 一边无序
     }
-//leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
-    public int search(int[] nums, int target) {
-        return 0;
+
+    //leetcode submit region begin(Prohibit modification and deletion)
+    static class Solution {
+        public int search(int[] nums, int target) {
+            //数组为空直接返回找不到
+            if (nums == null || nums.length == 0) {
+                return -1;
+            }
+            int length = nums.length;
+            int l = 0;
+            int r = length - 1;
+            //左侧坐标比右侧坐标小就继续循环
+            while (l <= r) {
+                int midIndex = (l + r) / 2;
+                //取数据中点
+                if (nums[midIndex] == target) {
+                    return midIndex;
+                }
+                int mid = nums[midIndex];
+                //判断左侧有序, 还是右侧有序
+                if (nums[0] <= mid) {
+                    //判断目标值是否在左侧区间
+                    if (nums[l] <= target && target <= mid) {
+                        r = midIndex - 1;
+                    } else {
+                        l = midIndex + 1;
+                    }
+                } else {
+                    //判断目标值是否在左侧区间
+                    if (mid <= target && target <= nums[r]) {
+                        l = midIndex + 1;
+                    } else {
+                        r = midIndex - 1;
+                    }
+                }
+            }
+            return -1;
+        }
     }
-}
 //leetcode submit region end(Prohibit modification and deletion)
 
 }
