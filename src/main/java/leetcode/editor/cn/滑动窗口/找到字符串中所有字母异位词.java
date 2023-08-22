@@ -52,34 +52,29 @@ public class 找到字符串中所有字母异位词 {
     class Solution {
         public List<Integer> findAnagrams(String s, String p) {
             List<Integer> ans = new ArrayList<>();
-            int sLen = s.length();
-            int pLen = p.length();
-            if (sLen < pLen) {
+            char[] sArr = s.toCharArray();
+            char[] pArr = p.toCharArray();
+
+            if (sArr.length < pArr.length) {
                 return ans;
             }
-            //建立两个数组存放字符串中字母出现的词频，并以此作为标准比较
-            int[] scount = new int[26];
-            int[] pcount = new int[26];
-            //当滑动窗口的首位在s[0]处时 （相当于放置滑动窗口进入数组）
-            for (int i = 0; i < pLen; i++) {
-                ++scount[s.charAt(i) - 'a']; //记录s中前pLen个字母的词频
-                ++pcount[p.charAt(i) - 'a']; //记录要寻找的字符串中每个字母的词频(只用进行一次来确定)
+            int[] sCount = new int[26];
+            int[] pCount = new int[26];
+
+            for (int i = 0; i < pArr.length; i++) {
+                sCount[sArr[i] - 'a']++;
+                pCount[pArr[i] - 'a']++;
             }
-            //判断放置处是否有异位词     (在放置时只需判断一次)
-            if (Arrays.equals(scount, pcount)) {
+            if (Arrays.equals(sCount, pCount)) {
                 ans.add(0);
             }
-            //开始让窗口进行滑动
-            for (int i = 0; i < sLen - pLen; i++) { //i是滑动前的首位
-                --scount[s.charAt(i) - 'a'];       //将滑动前首位的词频删去
-                ++scount[s.charAt(i + pLen) - 'a'];  //增加滑动后最后一位的词频（以此达到滑动的效果）
-
-                //判断滑动后处，是否有异位词
-                if (Arrays.equals(scount, pcount)) {
+            for (int i = 0; i < sArr.length - p.length(); i++) {
+                sCount[sArr[i] - 'a']--;
+                sCount[sArr[i + p.length()] - 'a']++;
+                if (Arrays.equals(sCount, pCount)) {
                     ans.add(i + 1);
                 }
             }
-
             return ans;
         }
     }
