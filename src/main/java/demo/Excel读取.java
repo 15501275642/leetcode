@@ -6,6 +6,8 @@ import org.apache.poi.ss.usermodel.*;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @Description TODO
@@ -21,6 +23,14 @@ public class Excel读取 {
 
  class ReadExcel {
     public static void main(String[] args) {
+        List<String> s =  new ArrayList<String>(){{
+            add("1");
+            add("2");
+        }};
+        StringBuilder errMessage = new StringBuilder(null);
+
+
+
         try {
             // 创建文件输入流
             FileInputStream file = new FileInputStream(new File("文件路径"));
