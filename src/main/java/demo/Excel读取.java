@@ -23,6 +23,8 @@ public class Excel读取 {
 
  class ReadExcel {
     public static void main(String[] args) {
+
+        String a = "1,2,3,i am";
         List<String> s =  new ArrayList<String>(){{
             add("1");
             add("2");
@@ -55,4 +57,7 @@ public class Excel读取 {
             e.printStackTrace();
         }
     }
+
+
+
 }
