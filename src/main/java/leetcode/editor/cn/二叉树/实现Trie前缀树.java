@@ -45,7 +45,7 @@
 //
 // Related Topics 设计 字典树 哈希表 字符串 👍 1515 👎 0
 
-package leetcode.editor.cn;
+package leetcode.editor.cn.二叉树;
 
 /**
  * 实现 Trie (前缀树)

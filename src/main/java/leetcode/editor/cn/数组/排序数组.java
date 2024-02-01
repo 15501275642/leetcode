@@ -30,7 +30,7 @@
 //
 // Related Topics 数组 分治 桶排序 计数排序 基数排序 排序 堆（优先队列） 归并排序 👍 644 👎 0
 
-package leetcode.editor.cn;
+package leetcode.editor.cn.数组;
 
 import java.util.Arrays;
 

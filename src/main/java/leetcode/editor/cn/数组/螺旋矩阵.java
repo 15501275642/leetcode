@@ -29,11 +29,9 @@
 //
 // Related Topics 数组 矩阵 模拟 👍 1181 👎 0
 
-package leetcode.editor.cn;
+package leetcode.editor.cn.数组;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 /**

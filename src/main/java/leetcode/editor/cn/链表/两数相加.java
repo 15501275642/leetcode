@@ -40,7 +40,7 @@
 //
 // Related Topics 递归 链表 数学 👍 8391 👎 0
 
-package leetcode.editor.cn;
+package leetcode.editor.cn.链表;
 
 import leetcode.editor.cn.common.ListNode;
 

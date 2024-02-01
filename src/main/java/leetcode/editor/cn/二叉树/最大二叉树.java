@@ -46,7 +46,7 @@
 //
 // Related Topics 栈 树 数组 分治 二叉树 单调栈 👍 603 👎 0
 
-package leetcode.editor.cn;
+package leetcode.editor.cn.二叉树;
 
 /**
  * 最大二叉树

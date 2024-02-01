@@ -25,7 +25,7 @@
 //
 // Related Topics 树 深度优先搜索 二叉树 👍 621 👎 0
 
-package leetcode.editor.cn;
+package leetcode.editor.cn.二叉树;
 
 /**
  * 树的子结构
