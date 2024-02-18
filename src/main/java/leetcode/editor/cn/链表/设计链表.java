@@ -58,38 +58,112 @@ package leetcode.editor.cn.链表;
  * @author wangyanji
  * @date 2024-01-31 16:06:52
  */
-public class 设计链表{
+public class 设计链表 {
     public static void main(String[] args) {
 
-         
+        MyLinkedList myLinkedList = new MyLinkedList();
     }
-//leetcode submit region begin(Prohibit modification and deletion)
-class MyLinkedList {
 
-    public MyLinkedList() {
+    //leetcode submit region begin(Prohibit modification and deletion)
+    static class MyLinkedList {
+        int size;
+        ListNode head;
 
+        public MyLinkedList() {
+            size = 0;
+            head = new ListNode();
+        }
+
+        /**
+         * 获取第几个节点的值
+         *
+         * @param index 目标坐标
+         */
+        public int get(int index) {
+            if (index < 0 || index > size - 1) {
+                return -1;
+            }
+            ListNode cur = head;
+            for (int i = 0; i <= index; i++) {
+                cur = cur.next;
+            }
+            return cur.val;
+        }
+
+        /**
+         * 头插入节点
+         *
+         * @param val 节点值
+         */
+        public void addAtHead(int val) {
+            addAtIndex(0, val);
+        }
+
+        /**
+         * 尾插入节点
+         *
+         * @param val 节点值
+         */
+        public void addAtTail(int val) {
+            addAtIndex(size, val);
+        }
+
+        /**
+         * 在第n个节点前插入节点
+         *
+         * @param val 节点值
+         */
+        public void addAtIndex(int index, int val) {
+            if (index > size) {
+                return;
+            }
+            if (index < 0) {
+                index = 0;
+            }
+            size ++;
+            //找到添加元素的位置
+            ListNode pre = head;
+            for (int i = 0; i < index; i++) {
+                pre = pre.next;
+            }
+            ListNode newListNode = new ListNode(val);
+            newListNode.next = pre.next;
+            pre.next = newListNode;
+        }
+
+        /**
+         * 删第n个节点
+         *
+         * @param index 节点坐标
+         */
+        public void deleteAtIndex(int index) {
+            if (index < 0 || index > size - 1) {
+                return;
+            }
+            size--;
+            ListNode pre = null;
+            ListNode cur = head;
+            for (int i = 0; i <= index ; i++) {
+                pre = cur;
+                cur = cur.next;
+            }
+            //cur为要删除的元素
+            pre.next = cur.next;
+        }
     }
-    
-    public int get(int index) {
 
-    }
-    
-    public void addAtHead(int val) {
+    static class ListNode {
+        int val;
+        ListNode next;
 
-    }
-    
-    public void addAtTail(int val) {
+        public ListNode() {
 
-    }
-    
-    public void addAtIndex(int index, int val) {
+        }
 
+        public ListNode(int val) {
+            this.val = val;
+        }
     }
-    
-    public void deleteAtIndex(int index) {
-
-    }
-}
 
 /**
  * Your MyLinkedList object will be instantiated and called as such:
