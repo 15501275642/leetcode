@@ -50,36 +50,44 @@ package leetcode.editor.cn.链表;
  * @author wangyanji
  * @date 2022-08-06 20:06:29
  */
-public class 反转链表{
+public class 反转链表 {
     public static void main(String[] args) {
         Solution solution = new 反转链表().new Solution();
-         
+
     }
 //leetcode submit region begin(Prohibit modification and deletion)
 
 
-  public class ListNode {
-      int val;
-      ListNode next;
-      ListNode() {}
-      ListNode(int val) { this.val = val; }
-      ListNode(int val, ListNode next) { this.val = val; this.next = next; }
-  }
+    public class ListNode {
+        int val;
+        ListNode next;
 
-class Solution {
-    public ListNode reverseList(ListNode head) {
-        ListNode curr = head;
-        ListNode pre = null;
-        while (curr != null) {
-            ListNode next = curr.next;//2
-            ListNode temp = pre; // null
-            pre = curr; // 1
-            pre.next = temp;//pre > null
-            curr = next; //
+        ListNode() {
         }
-        return pre;
+
+        ListNode(int val) {
+            this.val = val;
+        }
+
+        ListNode(int val, ListNode next) {
+            this.val = val;
+            this.next = next;
+        }
     }
-}
+
+    class Solution {
+        public ListNode reverseList(ListNode head) {
+            ListNode pre = null;
+            while (head != null) {
+                ListNode next = head.next;
+                head.next = pre;
+                pre = head;
+                head = next;
+            }
+            return pre;
+            //反转核心代码
+        }
+    }
 //leetcode submit region end(Prohibit modification and deletion)
 
 }
