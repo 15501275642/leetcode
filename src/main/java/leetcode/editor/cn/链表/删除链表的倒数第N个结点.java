@@ -78,11 +78,11 @@ public class 删除链表的倒数第N个结点 {
             ListNode slowIndex = dummyNode;
 
             // 只要快慢指针相差 n 个结点即可
-            for (int i = 0; i <= n  ; i++){
+            for (int i = 0; i <= n; i++) {
                 fastIndex = fastIndex.next;
             }
 
-            while (fastIndex != null){
+            while (fastIndex != null) {
                 fastIndex = fastIndex.next;
                 slowIndex = slowIndex.next;
             }
@@ -93,7 +93,7 @@ public class 删除链表的倒数第N个结点 {
             return dummyNode.next;
         }
 
-            public ListNode removeNthFromEnd(ListNode head, int n) {
+        public ListNode removeNthFromEnd(ListNode head, int n) {
             if (n <= 0) {
                 return head;
             }
