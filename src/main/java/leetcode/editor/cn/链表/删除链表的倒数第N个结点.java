@@ -50,27 +50,96 @@ import leetcode.editor.cn.common.ListNode;
  * @author wangyanji
  * @date 2022-07-25 16:38:35
  */
-public class 删除链表的倒数第N个结点{
+public class 删除链表的倒数第N个结点 {
     public static void main(String[] args) {
-        Solution solution = new 删除链表的倒数第N个结点().new Solution();
-         
+        ListNode l3 = new ListNode(3);
+        ListNode l2 = new ListNode(2, l3);
+        ListNode l1 = new ListNode(1, l2);
+        ListNode listNode = new Solution().removeNthFromEnd1(l1, 4);
+
+        //打印单链表
+        while (listNode != null) {
+            System.out.println(listNode.val);
+            listNode = listNode.next;
+        }
+
     }
-//leetcode submit region begin(Prohibit modification and deletion)
-/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode() {}
- *     ListNode(int val) { this.val = val; }
- *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
- * }
- */
-class Solution {
-    public ListNode removeNthFromEnd(ListNode head, int n) {
-        return null;
+
+    //leetcode submit region begin(Prohibit modification and deletion)
+    static class Solution {
+        /**
+         * 标准答案(未考虑删除坐标超长的问题)
+         */
+        public ListNode removeNthFromEnd1(ListNode head, int n) {
+            ListNode dummyNode = new ListNode(0);
+            dummyNode.next = head;
+
+            ListNode fastIndex = dummyNode;
+            ListNode slowIndex = dummyNode;
+
+            // 只要快慢指针相差 n 个结点即可
+            for (int i = 0; i <= n  ; i++){
+                fastIndex = fastIndex.next;
+            }
+
+            while (fastIndex != null){
+                fastIndex = fastIndex.next;
+                slowIndex = slowIndex.next;
+            }
+
+            //此时 slowIndex 的位置就是待删除元素的前一个位置。
+            //具体情况可自己画一个链表长度为 3 的图来模拟代码来理解
+            slowIndex.next = slowIndex.next.next;
+            return dummyNode.next;
+        }
+
+            public ListNode removeNthFromEnd(ListNode head, int n) {
+            if (n <= 0) {
+                return head;
+            }
+            //删除需要用到虚拟节点
+            ListNode pre = new ListNode(-1, head);
+            //快指针
+            ListNode fast = head;
+            //慢指针
+            ListNode slow = head;
+            ListNode preSlow = pre;
+
+            //先让快指针走n步
+            for (int i = 0; i < n; i++) {
+                if (fast == null) {
+                    return head;
+                }
+                fast = fast.next;
+            }
+            //快指针和慢指针一起走直到快指针到队尾
+            while (fast != null) {
+                fast = fast.next;
+                slow = slow.next;
+                preSlow = preSlow.next;
+            }
+            //慢指针就是需要删除的目标节点, 删除
+            preSlow.next = slow.next;
+            return pre.next;
+        }
     }
-}
+
+    public static class ListNode {
+        int val;
+        ListNode next;
+
+        ListNode() {
+        }
+
+        ListNode(int val) {
+            this.val = val;
+        }
+
+        ListNode(int val, ListNode next) {
+            this.val = val;
+            this.next = next;
+        }
+    }
 //leetcode submit region end(Prohibit modification and deletion)
 
 }
