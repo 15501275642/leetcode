@@ -41,6 +41,8 @@ package leetcode.editor.cn.链表;
  *
  * @author wangyanji
  * @date 2022-08-19 18:24:49
+ * 1.要有虚拟节点
+ * 2.控制遍历的边界, 考虑链表个数 奇偶数
  */
 public class 两两交换链表中的节点 {
     public static void main(String[] args) {
@@ -70,6 +72,23 @@ public class 两两交换链表中的节点 {
         public ListNode swapPairs(ListNode head) {
             //生成头结点
             ListNode hair = new ListNode(-1, head);
+            ListNode cur = hair;
+            while (cur.next != null && cur.next.next != null) {
+                ListNode temp = cur.next;
+                ListNode temp1 = cur.next.next.next;
+                //交换
+                cur.next = cur.next.next;
+                cur.next.next = temp;
+                //更新cur坐标
+                temp.next = temp1;
+                cur = cur.next.next;
+            }
+            return hair.next;
+        }
+
+        public ListNode swapPairs1(ListNode head) {
+            //生成头结点
+            ListNode hair = new ListNode(-1, head);
             //快指针走两步 慢指针走一步
             ListNode fast = hair, slow = hair;
             while (fast.next != null && fast.next.next != null) {
@@ -88,6 +107,7 @@ public class 两两交换链表中的节点 {
             temp.next = fast.next;
             fast.next = temp;
         }
+
     }
 //leetcode submit region end(Prohibit modification and deletion)
 
