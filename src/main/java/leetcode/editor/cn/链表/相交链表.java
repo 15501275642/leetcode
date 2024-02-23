@@ -93,13 +93,24 @@ package leetcode.editor.cn.链表;
 /**
  * 相交链表
  * 走到尽头见不到你，于是走过你来时的路，等到相遇时才发现，你也走过我来时的路。
+ *
  * @author wangyanji
  * @date 2023-12-07 10:24:37
  */
 public class 相交链表 {
     public static void main(String[] args) {
         Solution solution = new 相交链表().new Solution();
-        ListNode ln1 = new ListNode(1);
+        ListNode ln8 = new ListNode(8, null);
+        ListNode ln7 = new ListNode(7, ln8);
+        ListNode ln6 = new ListNode(6, ln7);
+        ListNode ln5 = new ListNode(5, ln6);
+        ListNode ln4 = new ListNode(4, ln5);
+        ListNode ln3 = new ListNode(3, ln4);
+        ListNode ln2 = new ListNode(2, ln4);
+        ListNode ln1 = new ListNode(1, ln2);
+
+        ListNode intersectionNode = solution.getIntersectionNode(ln1, ln3);
+        System.out.println(intersectionNode.val);
 
     }
 //leetcode submit region begin(Prohibit modification and deletion)
@@ -109,14 +120,13 @@ public class 相交链表 {
         int val;
         ListNode next;
 
-        ListNode(int x) {
-            val = x;
-            next = null;
+        ListNode(int x, ListNode next) {
+            this.val = x;
+            this.next = next;
         }
     }
 
     public class Solution {
-
         public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
             if (headA == null || headB == null) {
                 return null;
@@ -126,9 +136,9 @@ public class 相交链表 {
             while (pA != pB) {
                 pA = pA == null ? headB : pA.next;
                 pB = pB == null ? headA : pB.next;
-                i ++;
+                i++;
             }
-            System.out.println("----" +i);
+            System.out.println("----" + i);
             return pA;
         }
     }
